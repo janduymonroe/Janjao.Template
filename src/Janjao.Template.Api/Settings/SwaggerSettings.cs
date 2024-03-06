@@ -10,9 +10,6 @@ public static class SwaggerSettings
         services.AddSwaggerGen(opt =>
         {
             opt.SwaggerDoc("v1", new() { Title = "Template", Version = "v1" });
-            var xml = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            var xmlPath = Path.Combine(AppContext.BaseDirectory, xml);
-            opt.IncludeXmlComments(xmlPath);
             opt.TagActionsBy(d =>
             {
                 return new List<string>() { d.ActionDescriptor.DisplayName! };

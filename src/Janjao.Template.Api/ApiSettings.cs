@@ -1,4 +1,5 @@
-﻿using Janjao.Template.Api.Middleware;
+﻿using Janjao.Template.Api.Endpoints;
+using Janjao.Template.Api.Middleware;
 using Janjao.Template.Api.Settings;
 using Serilog;
 
@@ -8,10 +9,11 @@ public static class ApiSettings
 {
     public static IServiceCollection AddApiLayer(this IServiceCollection services)
     {
-        services.AddSwaggerSettings();
         services.AddSerilog();
-        services.AddExceptionHandler<ExceptionGlobalHandler>();
         services.AddProblemDetails();
+        services.AddExceptionHandler<ExceptionGlobalHandler>();
+        services.AddSwaggerSettings();
+
         return services;
     }
     
@@ -19,6 +21,9 @@ public static class ApiSettings
     {
         app.UseSwaggerSettings();
         app.UseExceptionHandler();
+        app.UseSwaggerSettings();
+        app.MapEndpoints();
+
         return app;
     }
 }
