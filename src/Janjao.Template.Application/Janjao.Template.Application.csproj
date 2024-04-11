@@ -7,12 +7,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Janjao.Template.Domain\Janjao.Template.Domain.csproj" />
-      <ProjectReference Include="..\Janjao.Template.Infra\Janjao.Template.Infra.csproj" />
+      <PackageReference Include="FluentValidation" Version="11.9.0" />
+      <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="FluentValidation" Version="11.9.0" />
+      <ProjectReference Include="..\Janjao.Template.Domain\Janjao.Template.Domain.csproj" />
+      <ProjectReference Include="..\Janjao.Template.Infra\Janjao.Template.Infra.csproj" />
     </ItemGroup>
 
 </Project>

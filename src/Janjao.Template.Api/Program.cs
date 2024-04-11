@@ -1,5 +1,5 @@
-using FluentValidation;
 using Janjao.Template.Api;
+using Janjao.Template.Application;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,9 +9,10 @@ builder.Host.UseSerilog((context, configuration) =>
 {
     configuration.ReadFrom.Configuration(context.Configuration);
 });
-builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+
 //Add Layers
 builder.Services.AddApiLayer();
+builder.Services.AddApplicationLayer();
 
 builder.Services.AddEndpointsApiExplorer();
 
